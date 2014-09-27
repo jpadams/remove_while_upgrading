@@ -24,10 +24,13 @@ class remove_while_upgrading {
     forcelocal => true,
   }
 
-  User <| title == 'peadmin'      or
-          title == 'puppet-dashboard' |> {
-    shell => '/sbin/nologin',
-  }
+  # This will change the shell for these users
+  # from the default of /bin/bash to /sbin/nologin.
+  # Only uncomment this if required due to security policy.
+  #User <| title == 'peadmin'      or
+  #        title == 'puppet-dashboard' |> {
+  #  shell => '/sbin/nologin',
+  #}
 
 }
 
